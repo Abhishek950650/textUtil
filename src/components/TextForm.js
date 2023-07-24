@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PropTypes } from 'prop-types';
 
 export default function TextForm(props) {
-    const [text, setText] = useState("Enter your text here ...")
+    const [text, setText] = useState("")
     // text =  'abhishek' // this is the wrong way to set value 
     // setText('text is set here') // this is the write way to set value
 
@@ -47,7 +47,7 @@ export default function TextForm(props) {
             <p>{text.split(' ').length -1} word and {text.length}</p>
             <p>{0.008* text.split(' ').length} minutes</p>
             <h2>Preview</h2>
-            <p>{text}</p>
+            <p>{text.length > 0 ? text : 'Enter some text to preview'}</p>
         </div>
        </>
     )
