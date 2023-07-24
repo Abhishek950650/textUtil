@@ -13,21 +13,27 @@ export default function TextForm(props) {
     const handleUpperonClick = (() => {
         let upText = text.toUpperCase();
         setText(upText);
+        props.showAlert('converted to upper case', 'success');
     })
     const handleLoweronClick = (() => {
         let upText = text.toLowerCase();
         setText(upText);
+        props.showAlert('converted to lower case', 'success');
+
     })
 
     const handleCopyonClick = (() => {
         let txt = document.getElementById('mytextBox');
         txt.select();
         navigator.clipboard.writeText(txt.value);
+        props.showAlert('text copied to clipboard', 'success');
+
     })
 
     const handleRemoveSpaceonClick = (() => {
         let txt = text.split(/[ ]+/);
-        setText(txt.join(" "))
+        setText(txt.join(" "));
+        props.showAlert('Extra space remove from text', 'success');
     })
     return (
        <>
