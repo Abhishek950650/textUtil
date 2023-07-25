@@ -1,48 +1,63 @@
-import { useState } from "react";
 import "./App.css";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-
+import About from "./components/About";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light"); // here we set false for darkmode
   const [alert, setAlert] = useState(null);
 
-  const showAlert = ((message, type) => {
+  const showAlert = (message, type) => {
     setAlert({
       msg: message,
-      type: type
+      type: type,
     });
 
     setTimeout(() => {
       setAlert(null);
     }, 2000);
-  })
+  };
 
   const toggleMode = () => {
     if (mode === "dark") {
       setMode("light");
-      document.body.style.backgroundColor = 'white';
+      document.body.style.backgroundColor = "white";
       showAlert("Light Mode Has Been Enabled", "success");
+      document.title = "textUtils- Light Mode";
     } else {
       setMode("dark");
-      document.body.style.backgroundColor = 'grey';
+      document.body.style.backgroundColor = "grey";
       showAlert("Dark Mode Has Been Enabled", "success");
-
+      document.title = "textUtils- Dark Mode";
     }
   };
   return (
     <>
-      <Navbar
-        title="textUtils"
-        homeText="Home"
-        mode={mode}
-        toggleMode={toggleMode}
-      />
-      <Alert alert={alert}/>
-      <div className="container my-3">
-        <TextForm heading="Enter the text to analyze below" showAlert={showAlert}/>
-      </div>
+      <Router>
+        <Navbar
+          title="textUtils"
+          homeText="Home"
+          mode={mode}
+          toggleMode={toggleMode}
+        />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route path="/about" component={About} />
+            <Route
+              path="/"
+              component={
+                <TextForm
+                  heading="Enter the text to analyze below"
+                  showAlert={showAlert}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
