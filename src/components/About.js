@@ -1,31 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import logoweb  from "../../src/logo-web.png";
-
+import { Link } from "react-router-dom";
 function About(props) {
   return (
     <div className="card">
       {/* <img src={imgSource.url} className="card-img-top" /> */}
       <Header/>
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
+        <h5 className="card-title">About Us</h5>
         <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          This is my First website in React I am software Developer and learning react 
         </p>
       </div>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">An item</li>
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
+        <li className="list-group-item">Learn</li>
+        <li className="list-group-item">Practice</li>
+        <li className="list-group-item">Enjoy</li>
       </ul>
       <div className="card-body">
-        <a href="/" className="card-link">
-          Card link
-        </a>
-        <a href="/" className="card-link">
-          Another link
-        </a>
+        <Link to="/about" className="card-link">
+          Home
+        </Link>
       </div>
     </div>
   );
