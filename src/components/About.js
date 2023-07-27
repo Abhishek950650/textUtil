@@ -1,27 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
+import logoweb  from "../../src/logo-web.png";
 
 function About(props) {
   return (
-    <div class="card">
-      <img src="" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
+    <div className="card">
+      {/* <img src={imgSource.url} className="card-img-top" /> */}
+      <Header/>
+      <div className="card-body">
+        <h5 className="card-title">Card title</h5>
+        <p className="card-text">
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+      <ul className="list-group list-group-flush">
+        <li className="list-group-item">An item</li>
+        <li className="list-group-item">A second item</li>
+        <li className="list-group-item">A third item</li>
       </ul>
-      <div class="card-body">
-        <a href="/" class="card-link">
+      <div className="card-body">
+        <a href="/" className="card-link">
           Card link
         </a>
-        <a href="/" class="card-link">
+        <a href="/" className="card-link">
           Another link
         </a>
       </div>
@@ -29,6 +31,12 @@ function About(props) {
   );
 }
 
+function Header() {
+  // Import result is the URL of your image
+  return <img src={logoweb} alt="Logo" style={{width:100}}/>;
+}
+
+
 About.propTypes = {};
 
-export default About;
+export default About ;
